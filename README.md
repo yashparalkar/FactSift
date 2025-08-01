@@ -18,6 +18,7 @@ final_score = α * similarity_score + β * credibility_score
 
 ```python
 final_score = 0.8 * similarity_score + 0.2 * quality_score
+```
 
 ## 🛠 Tech Stack
 
