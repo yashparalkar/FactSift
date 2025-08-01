@@ -1,0 +1,9 @@
+pytesseract
+pillow
+python-dotenv
+langchain
+langchain-openai
+streamlit
+PyMuPDF
+langchain-community
+pypdf
