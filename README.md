@@ -4,13 +4,16 @@ FactSift uses a Google Search wrapper to fetch relevant news URLs in real time. 
 
 1. **Content Extraction**: Web pages are loaded and parsed into clean text.
 2. **Quality Scoring**: Each document is evaluated for:
-   - ✅ **Source credibility** (e.g., `reuters`, `bbc`, `cnn`, etc.)
-   - 📅 **Recency** (based on how many days old it is)
-   - 🧾 **Content length** (ideal size range)
+   - **Source credibility** (e.g., `reuters`, `bbc`, `cnn`, `hindustantimes` etc.)
+   - **Recency** (based on how many days old it is)
+   - **Content length** (ideal size range)
 3. **Semantic Ranking**: LangChain's vector store performs similarity search against the user query.
 4. **Score Fusion**: For each document, a **final score** is computed using the formula:
 
-### 📊 Final Document Score
+![Sales chart](assets/screenshot.png)
+
+
+### Final Document Score
 
 final_score = α * similarity_score + β * credibility_score
 
