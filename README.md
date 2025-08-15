@@ -2,7 +2,7 @@
 
 FactSift uses a Google Search wrapper to fetch relevant news URLs in real time. Each article undergoes the following process:
 
-1. **Content Extraction**: Web pages are loaded and parsed into clean text.
+1. **Content Extraction**: Web pages are loaded, parsed into clean text, and stored in a vector database.
 2. **Quality Scoring**: Each document is evaluated for:
    - **Source credibility** (e.g., `reuters`, `bbc`, `cnn`, `hindustantimes` etc.)
    - **Recency** (based on how many days old it is)
