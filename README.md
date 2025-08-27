@@ -37,7 +37,7 @@ final_score = 0.8 * similarity_score + 0.2 * quality_score
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/newsbot.git
+git clone https://github.com/yashparalkar/FactSift.git
 cd newsbot
 
 # Create a virtual environment
