@@ -11,7 +11,7 @@ from langchain import hub
 
 from rag_engine.google_news_links import simple_google_search
 from rag_engine.quality_filtering import credibility_scores
-from rag_engine.news_article import load_web_content
+from rag_engine.news_article import load_web_content_hybrid
 
 load_dotenv()
 os.environ["LANGSMITH_TRACING"] = "true"
@@ -26,13 +26,14 @@ class RAGPipeline:
         self.prompt = hub.pull("rlm/rag-prompt")
 
     def load_documents(self, query: str) -> List[Document]:
-        urls = simple_google_search(query)
+        urls = simple_google_search(query, 5)
         docs = []
         for url in urls:
             try:
-                docs.append(load_web_content(url))
+                docs.append(load_web_content_hybrid(url))
             except Exception as e:
                 print(f"[Error loading {url}]: {e}")
+            docs.append(load_web_content_hybrid(url))
         credibility_scores(docs)
         return docs
 
@@ -69,6 +70,7 @@ def initialize_rag_pipeline() -> RAGPipeline:
 
 def process_query(query: str, pipeline: RAGPipeline, chat_history: List[dict]) -> Tuple[str, List[dict]]:
     docs = pipeline.load_documents(query)
+    print(f"📰 Loaded {len(docs)} documents.")
     pipeline.index_documents(docs)
     raw_context = pipeline.retrieve_context(query)
     final_context = pipeline.score_and_select_context(raw_context)

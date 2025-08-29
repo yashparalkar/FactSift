@@ -10,9 +10,6 @@ FactSift uses a Google Search wrapper to fetch relevant news URLs in real time. 
 3. **Semantic Ranking**: LangChain's vector store performs similarity search against the user query.
 4. **Score Fusion**: For each document, a **final score** is computed using the formula:
 
-![Sales chart](assets/screenshot.png)
-
-
 ### Final Document Score
 
 final_score = α * similarity_score + β * credibility_score
@@ -23,13 +20,18 @@ final_score = α * similarity_score + β * credibility_score
 final_score = 0.8 * similarity_score + 0.2 * quality_score
 ```
 
+![Sales chart](assets/screenshot.png)
+
+![Sales chart](assets/doc_analysis_ss.png)
+
+
 ## 🛠 Tech Stack
 
 - [OpenAI GPT API](https://platform.openai.com/)
 - [LangChain](https://www.langchain.com/)
 - [Streamlit](https://streamlit.io/)
 - [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) (for PDF text extraction)
-- `newspaper3k`, `requests`, `BeautifulSoup4` (for web scraping)
+- `newspaper3k`, `requests`, `BeautifulSoup4`, `trafilatura` (for web scraping)
 
 ---
 
@@ -38,7 +40,7 @@ final_score = 0.8 * similarity_score + 0.2 * quality_score
 ```bash
 # Clone the repository
 git clone https://github.com/yashparalkar/FactSift.git
-cd newsbot
+cd FactSift
 
 # Create a virtual environment
 python -m venv venv

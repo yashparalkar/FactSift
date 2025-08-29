@@ -5,7 +5,10 @@ def credibility_scores(results):
     
     reputable_domains = {
         'reuters', 'ap', 'bbc', 'cnn', 'hindustantimes', 'hindu', 'livemint',
-        'nytimes', 'wsj', 'bloomberg', 'techcrunch', 'arstechnica'
+        'nytimes', 'wsj', 'bloomberg', 'techcrunch', 'arstechnica', 'timesofindia', 'forbes',
+        'theverge', 'wired', 'theguardian', 'economist', 'financialtimes', 'npr',
+        'cnbc', 'axios', 'politico', 'nbcnews', 'thehill', 'vox', 'buzzfeednews',
+        'ndtv'
     }
 
     scores = []
